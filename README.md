@@ -5,11 +5,13 @@ Ambient Doodle Pro is a full-screen Flutter drawing app with realtime Firebase s
 ## Features
 
 - Fullscreen immersive drawing canvas
+- Professional animated startup loader
 - Pen, sketch, marker, and eraser tools
 - Color picker and adjustable stroke styles
 - Undo and clear actions
 - Realtime cloud sync with Firebase Realtime Database
 - Save doodles to device gallery
+- Custom launcher icons for Android and iOS
 
 ## Tech Stack
 
@@ -52,6 +54,37 @@ Run tests with:
 ```bash
 flutter test
 ```
+
+## Branding and App Icons
+
+The app uses `assets/logo.png` as the branding source image for launcher icons.
+
+If you update `assets/logo.png`, regenerate launcher icons with:
+
+```bash
+flutter pub run flutter_launcher_icons
+```
+
+Then rebuild/reinstall the app so the new icon appears on device launchers.
+
+## Signed Android Release APK
+
+This project is configured for signed release builds using:
+
+- `android/key.properties` (local signing config; ignored by git)
+- `android/app/my-release-key.jks` (keystore; ignored by git)
+
+Build signed APK:
+
+```bash
+flutter build apk --release
+```
+
+Output:
+
+- `build/app/outputs/flutter-apk/app-release.apk`
+
+Share that APK via Quick Share, Drive, or messaging apps for direct installs.
 
 ## Build Smaller Android Artifacts
 
