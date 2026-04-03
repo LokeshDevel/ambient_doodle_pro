@@ -53,6 +53,22 @@ Run tests with:
 flutter test
 ```
 
+## Build Smaller Android Artifacts
+
+Use ABI-split release APKs so each device downloads only its CPU architecture:
+
+```bash
+flutter build apk --release --split-per-abi
+```
+
+Output files are generated under `build/app/outputs/flutter-apk/`.
+
+For Play Store distribution, prefer an Android App Bundle:
+
+```bash
+flutter build appbundle --release
+```
+
 ## Project Structure
 
 - `lib/main.dart` - app bootstrap and theme setup

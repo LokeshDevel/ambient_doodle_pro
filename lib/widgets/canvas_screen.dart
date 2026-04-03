@@ -5,7 +5,6 @@ import 'package:flutter_drawing_board/flutter_drawing_board.dart';
 import 'dart:async';
 import 'package:flutter_drawing_board/paint_contents.dart';
 import 'package:gal/gal.dart';
-import 'package:screen_state/screen_state.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import '../models/drawing_tool.dart';
 import '../services/firebase_sync_service.dart';
@@ -37,6 +36,7 @@ class _CanvasScreenState extends State<CanvasScreen>
   
   // Realtime Cloud Synchronization
   FirebaseSyncService? _syncService;
+  bool _deferredInitDone = false;
 
   @override
   void initState() {
@@ -56,15 +56,18 @@ class _CanvasScreenState extends State<CanvasScreen>
     });
     _applyTool(_activeTool);
 
-    // Attach the real-time continuous syncer
-    _syncService = FirebaseSyncService(_drawingController);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _deferredInitDone) return;
+      _deferredInitDone = true;
 
-    // Keep screen active while app is foregrounded
-    try {
-      WakelockPlus.enable();
-    } catch (e) {
-      debugPrint('Wakelock enable failed: $e');
-    }
+      _syncService = FirebaseSyncService(_drawingController);
+
+      try {
+        WakelockPlus.enable();
+      } catch (e) {
+        debugPrint('Wakelock enable failed: $e');
+      }
+    });
   }
 
   @override
@@ -269,11 +272,11 @@ class _CanvasScreenState extends State<CanvasScreen>
                             color: Colors.white.withAlpha(30), width: 1),
                       ),
                       child: const Text(
-                        '✦  Ambient Doodle — just start drawing',
+                        'Ambient Doodle Pro - just start drawing',
                         style: TextStyle(
                           color: Colors.white38,
                           fontSize: 12,
-                          letterSpacing: 1.2,
+                          letterSpacing: 1.1,
                           fontWeight: FontWeight.w300,
                         ),
                       ),

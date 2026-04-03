@@ -60,3 +60,8 @@ gradle_error_log.txt
 gradle_output.txt
 gradle_output2.txt
 test_output.txt
+
+# Android signing secrets
+android/key.properties
+android/app/*.jks
+android/app/*.keystore

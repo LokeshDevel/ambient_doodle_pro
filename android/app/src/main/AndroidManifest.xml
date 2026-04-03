@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <application
-        android:label="ambient_doodle_pro"
+        android:label="Ambient Doodle Pro"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
