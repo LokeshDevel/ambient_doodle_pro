@@ -1,0 +1,60 @@
+> Task :gradle:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle:pluginDescriptors UP-TO-DATE
+> Task :gradle:processResources
+
+> Task :gradle:compileKotlin
+w: file:///C:/src/flutter/packages/flutter_tools/gradle/src/main/kotlin/DependencyVersionChecker.kt:194:39 'getter for minSdkVersion: AndroidVersion' is deprecated. Will be removed in v9.0
+w: file:///C:/src/flutter/packages/flutter_tools/gradle/src/main/kotlin/FlutterPlugin.kt:11:37 'ApkVariant' is deprecated. Deprecated in Java
+w: file:///C:/src/flutter/packages/flutter_tools/gradle/src/main/kotlin/FlutterPlugin.kt:628:69 'ApkVariant' is deprecated. Deprecated in Java
+
+> Task :gradle:compileJava NO-SOURCE
+> Task :gradle:compileGroovy NO-SOURCE
+> Task :gradle:classes
+> Task :gradle:jar
+> Task :app:DebugMinSdkCheck
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :app:compileFlutterBuildDebug
+lib/services/firebase_sync_service.dart:34:16: Error: The setter 'onPointerUp' isn't defined for the type 'DrawingController'.
+ - 'DrawingController' is from 'package:flutter_drawing_board/src/drawing_controller.dart' ('../../../AppData/Local/Pub/Cache/hosted/pub.dev/flutter_drawing_board-1.0.1+2/lib/src/drawing_controller.dart').
+Try correcting the name to the name of an existing setter, or defining a setter or field named 'onPointerUp'.
+    controller.onPointerUp = (_) {
+               ^^^^^^^^^^^
+lib/services/firebase_sync_service.dart:82:78: Error: Member not found: 'PaintContent.fromJson'.
+        List<PaintContent> cloudContents = jsonPaths.map((j) => PaintContent.fromJson(j)).toList();
+                                                                             ^^^^^^^^
+lib/services/firebase_sync_service.dart:82:91: Error: A value of type 'List<dynamic>' can't be assigned to a variable of type 'List<PaintContent>'.
+ - 'List' is from 'dart:core'.
+ - 'PaintContent' is from 'package:flutter_drawing_board/src/paint_contents/paint_content.dart' ('../../../AppData/Local/Pub/Cache/hosted/pub.dev/flutter_drawing_board-1.0.1+2/lib/src/paint_contents/paint_content.dart').
+        List<PaintContent> cloudContents = jsonPaths.map((j) => PaintContent.fromJson(j)).toList();
+                                                                                          ^
+Target kernel_snapshot_program failed: Exception
+
+
+> Task :app:compileFlutterBuildDebug FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/tamma/Desktop/anti-app/ambient_doodle_pro/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Process 'command 'C:\src\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.12/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 16s
+6 actionable tasks: 5 executed, 1 up-to-date
